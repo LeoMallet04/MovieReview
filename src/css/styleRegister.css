@@ -1,0 +1,50 @@
+body{
+    background-color: black;
+    
+    }
+    
+    section{
+        margin-top: 100px;
+        background-color: white;
+        border-radius: 20px;
+        width: 700px;
+        height: 500px;
+    
+    }   
+    
+    button{
+        margin: 75px;
+        height: 50px;
+        width: 100;
+        background-color: black;
+        color: white;
+        border-radius: 25px;
+    }
+    
+    header{
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 50px;
+    }
+    
+    .loginInput{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    input{
+        height: 30px;
+        width: 150px;
+        border-radius: 10px;
+    }
+    
+    hr{
+        width: 1526px;
+    }
+    
+    .loginButton{
+        margin-top: 145px;
+    }

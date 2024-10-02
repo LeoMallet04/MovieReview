@@ -20,6 +20,7 @@ import { GridFSBucket } from 'mongodb';
 import e from 'express';
 import { randomBytes } from 'crypto';
 import { create } from 'domain';
+import { get } from 'http';
 
 const prisma = new PrismaClient()
 
@@ -31,11 +32,10 @@ async function main() {
   createUser(username, password, email)
   //createReview(username, "Harry Potter - Philopher's stone", "JK Rowling", "Fantasy", 5, 150, "AVADA KEDRABAAAA!!... Said Camly")
   findMany();
-  //findUser(username)
+  findUser(username)
   //deleteReview("Harry Potter - Philopher's stone")
   //deleteUser(username)
-  updateUser(username,"FDS", "123", "fds@gmail.com")
-  findMany();
+  updateUser(username,"FDS", "123", "fds@gmail.com");
 }
 
 main()
@@ -70,31 +70,37 @@ async function deleteReview(title: string) {
 }
 
 async function createUser(username: string, password: string, email: string) {
-  if(await prisma.user.findUnique({where: {username: username}}) == null){
+  try {
+    if(await prisma.user.findUnique({where: {username: username}}) == null && await prisma.user.findUnique({where: {email:email}}) == null){
   
-  const user = z.object({
-    username: z.string(),
-    password: z.string(),
-    email: z.string()
-  })
-  const verify = user.safeParse({username: username, password: password, email: email});
+      const user = z.object({
+        username: z.string(),
+        password: z.string(),
+        email: z.string()
+      })
+      const verify = user.safeParse({username: username, password: password, email: email});
+      
+      if(verify){
+        const user = await prisma.user.create({
+          data: {
+            username: username,
+            password: password,
+            email: email,
+          },
+        })
+        console.log(user)
+      }else{
+        console.log("Invalid data")
+      }
+    
+      }else{
+        console.log("Username or Email already exists")
+      }
+  } catch (error) {
+    console.log(error)
+  }
   
-  if(verify){
-    const user = await prisma.user.create({
-      data: {
-        username: username,
-        password: password,
-        email: email,
-      },
-    })
-    console.log(user)
-  }else{
-    console.log("Invalid data")
-  }
-
-  }else{
-    console.log("User already exists")
-  }
+  
 }
   
 
