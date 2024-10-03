@@ -21,14 +21,18 @@ import e from 'express';
 import { randomBytes } from 'crypto';
 import { create } from 'domain';
 import { get } from 'http';
+import { registerUser, loginUser } from './indexFront';
 
 const prisma = new PrismaClient()
 
 async function main() {
-  const username = 'Leo'
-  const password = '123456'
-  const email = 'leonardoms.2010@email.com'
-  //getUsername();
+  const username = ''
+  const password = ''
+  const email = ''
+  const user = registerUser()
+  // if(user.username != null && user.password != null && ){
+
+  // }
   createUser(username, password, email)
   //createReview(username, "Harry Potter - Philopher's stone", "JK Rowling", "Fantasy", 5, 150, "AVADA KEDRABAAAA!!... Said Camly")
   // findMany();
