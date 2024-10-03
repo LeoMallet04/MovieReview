@@ -4,7 +4,9 @@
   "main": "teste.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/indexBack.ts",
+    "build": "webpack",         
+    "dev": "webpack --watch" 
   },
   "keywords": [],
   "author": "",
@@ -20,7 +22,10 @@
     "@types/express": "^4.17.21",
     "@types/node": "^22.6.1",
     "prisma": "^5.20.0",
+    "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
   }
 }

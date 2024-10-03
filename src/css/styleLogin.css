@@ -21,6 +21,11 @@ button{
     border-radius: 25px;
 }
 
+button:hover{
+    background-color: whitesmoke;
+    color: black;
+}
+
 header{
     color: white;
     display: flex;

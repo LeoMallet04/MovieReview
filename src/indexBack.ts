@@ -28,15 +28,18 @@ async function main() {
   const username = 'Leo'
   const password = '123456'
   const email = 'leonardoms.2010@email.com'
-
+  //getUsername();
   createUser(username, password, email)
   //createReview(username, "Harry Potter - Philopher's stone", "JK Rowling", "Fantasy", 5, 150, "AVADA KEDRABAAAA!!... Said Camly")
-  findMany();
-  findUser(username)
+  // findMany();
+  // findUser(username)
   //deleteReview("Harry Potter - Philopher's stone")
   //deleteUser(username)
-  updateUser(username,"FDS", "123", "fds@gmail.com");
+  // updateUser(username,"FDS", "123", "fds@gmail.com");
 }
+
+
+
 
 main()
   .catch(async (e) => {
